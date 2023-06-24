@@ -4,13 +4,17 @@
 }
 .container{
     height: 98.8vh;
+    margin-left: 50%;
+    translate: -50% 0;
 }
 
 .row{
+    padding-left: 10px;
+    padding-right: 10px;
     width: 100%;
     display: flex;
     gap: 10px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: green;
 }
@@ -18,11 +22,13 @@
 .cell{
     background-color: red;
     margin-top: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .cell-changed{
     height:100px;
     width: 100px;
     background-color:blue;
-    margin-top: 10px
+    margin: 10px
 }

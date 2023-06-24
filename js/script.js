@@ -2,6 +2,7 @@ const CONTAINER = document.querySelector(".container");
 
 
 function initialize(){
+    CONTAINER.style.cssText += `width:${CONTAINER.clientHeight}px;`;
     for(let y=0;y<16;y++){
         let row = document.createElement("div");
         row.classList.add("row");
