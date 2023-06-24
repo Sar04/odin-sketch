@@ -1,6 +1,17 @@
 const CONTAINER = document.querySelector(".container");
 const NEWGRIDBUTTON = document.querySelector("#newGrid");
 
+function getRgbValuesFromString(rgbString){
+    let rgbValue = rgbString;
+    let splitRGB = rgbValue.split(",");
+    let r = splitRGB[0].split('(');
+    r = r[1];
+    let g = splitRGB[1].trim();
+    let b = splitRGB[2].trim();
+    b = b.replace(')', '');
+    let rgb = [r,g,b];
+    return rgb;
+}
 
 function clearGrid(){
     while(CONTAINER.firstChild){
@@ -24,8 +35,23 @@ function newGrid(scale){
                 cell.style.cssText += `margin-bottom:${gap}px;`;
             }
             row.appendChild(cell);
-            cell.addEventListener("mouseenter", ()=>{                
-                cell.style.background = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
+            cell.addEventListener("mouseenter", ()=>{
+                if(cell.classList.contains("changed")){
+                    let rgb = getRgbValuesFromString(cell.style.background);
+                    let change = getRgbValuesFromString(cell.style.color);
+
+                    cell.style.background = `rgb(${rgb[0]-change[0]},${rgb[1]-change[1]},${rgb[2]-change[2]})`;
+                }else{
+                    cell.classList.add("changed");
+
+                    let a = Math.floor(Math.random()*255);
+                    let b = Math.floor(Math.random()*255);
+                    let c = Math.floor(Math.random()*255);
+
+                    cell.style.background = `rgb(${a},${b},${c})`;
+                    cell.style.color = `rgb(${a/9},${b/9},${c/9})`;
+                }
+                
             });            
         }
         
@@ -46,6 +72,8 @@ NEWGRIDBUTTON.addEventListener("click", ()=>{
  });
 
 newGrid(16);
+
+
 
 
 
