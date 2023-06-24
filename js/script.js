@@ -24,9 +24,8 @@ function newGrid(scale){
                 cell.style.cssText += `margin-bottom:${gap}px;`;
             }
             row.appendChild(cell);
-            cell.addEventListener("mouseenter", ()=>{
-                // cell.classList.replace("cell","cell-changed");
-                cell.style.background = "blue";
+            cell.addEventListener("mouseenter", ()=>{                
+                cell.style.background = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
             });            
         }
         
