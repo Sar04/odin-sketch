@@ -3,17 +3,17 @@
     padding: 0;
 }
 .container{
-    height: 98.8vh;
+    height: 100vh;
     margin-left: 50%;
     translate: -50% 0;
 }
 
 .row{
-    padding-left: 10px;
-    padding-right: 10px;
+    /* padding-left: 2px;
+    padding-right: 2px; */
     width: 100%;
     display: flex;
-    gap: 10px;
+    /* gap: 2px; */
     justify-content: space-around;
     align-items: center;
     background-color: green;
@@ -21,14 +21,14 @@
 
 .cell{
     background-color: red;
-    margin-top: 10px;
+    /* margin-top: 2px; */
     flex-grow: 1;
     flex-shrink: 1;
 }
 
-.cell-changed{
-    height:100px;
-    width: 100px;
-    background-color:blue;
-    margin: 10px
+#newGrid{
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 50vh;
+    translate: -50% -50%;
 }
